@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>codemirror-typo demo</title>
+
+  <meta charset='utf-8'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.20.2/codemirror.css'>
+  <link rel='stylesheet' href='codemirror-typo.css'>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.20.2/codemirror.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.20.2/mode/markdown/markdown.js'></script>
+  <script src='codemirror-typo.min.js'></script>
+  <style>
+    html, body {height: 100%; font-size: 20px}
+    .CodeMirror {height: 100%}
+  </style>
+</head>
+<body>
+
+  <script>
+    var cm = CodeMirror(document.body, {
+      lineWrapping: true,
+      mode: 'markdown'
+    });
+
+    // Dictionary files are 'dictionary/en_US/en_US.aff' & 'dictionary/en_US/en_US.dic'
+    // otherwise, a 3rd parameter would be path or options object, see readme
+    // https://github.com/pirtleshell/codemirror-typo
+    codeMirrorTypo(cm, 'en_US');
+
+    var someMarkdown = [
+      "\n\n# Such a wonderfu day",
+      "We all know whut it's like to acidentaly mispell words.",
+      "We don't allways need to worryy about it, but when writing things like markdown, we'd like to be able to catch erors.",
+      "Because speling mistkaes make you look foolish!",
+      "**And you're not folish!**",
+      "```\nbut of course, ther are some placez we don't want to spellcheck. Lyke inside code tags!\n```",
+      "The gutter menus are in beta right now. As you've noticed, they take quite a while to load and we want them speedy-fast! They are snails though, so... you get what you pay for.",
+      "Learn more at [codemirror-typo](https://github.com/pirtleshell/codemirror-typo).",
+    ].join('\n\n');
+    cm.setValue(someMarkdown);
+
+  </script>
+
+  <a href="https://github.com/pirtleshell/codemirror-typo-demo"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+</body>
+</html>
